@@ -50,6 +50,11 @@ window.WF_API = (() => {
   }
 
   window.addEventListener("message", event => {
+    console.log("WF DEBUG:", {
+  sourceMatches: event.source === frame.contentWindow,
+  responseId: event.data?.requestId,
+  pendingIds: [...pending.keys()]
+});
     console.log("WEB FACTORY MESSAGE:", event.origin, event.data);
     if (!frame || event.source !== frame.contentWindow) return;
 

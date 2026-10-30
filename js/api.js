@@ -50,6 +50,7 @@ window.WF_API = (() => {
   }
 
   window.addEventListener("message", event => {
+    console.log("WEB FACTORY MESSAGE:", event.origin, event.data);
     if (!frame || event.source !== frame.contentWindow) return;
 
     const msg = event.data;
